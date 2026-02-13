@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ozma Houck - PhD Student</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span class="theme-icon">🌙</span>
+    </button>
+    
+    <header>
+        <div class="container">
+            <div class="profile-section">
+                <img src="profile-photo.jpg" alt="Ozma Houck" class="profile-photo">
+                <div class="bio">
+                    <h1>Ozma Houck</h1>
+                    <p class="subtitle">PhD Student</p>
+                    <p class="bio-text">
+                        I am a PhD student working at the intersection of economics, climate science, and machine learning. 
+                        My research focuses on applying advanced computational methods to understand and address climate-related 
+                        economic challenges, developing innovative approaches that bridge quantitative economics, environmental 
+                        science, and artificial intelligence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#cv">CV</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section id="cv" class="section">
+                <h2>Curriculum Vitae</h2>
+                <p>Download my complete academic CV to learn more about my background and experience.</p>
+                <a href="cv.pdf" class="cv-link" download>Download CV (PDF)</a>
+            </section>
+
+            <section id="research" class="section">
+                <h2>Research</h2>
+                <p>
+                    My research explores the intersection of economics, climate science, and machine learning. 
+                    I develop computational models and analytical frameworks to better understand climate-related 
+                    economic phenomena and inform policy decisions.
+                </p>
+                <h3>Research Interests</h3>
+                <ul class="research-list">
+                    <li>Climate economics and environmental policy</li>
+                    <li>Machine learning applications in climate science</li>
+                    <li>Computational economics and modeling</li>
+                    <li>Data-driven approaches to sustainability</li>
+                </ul>
+            </section>
+
+            <section id="teaching" class="section">
+                <h2>Teaching Experience</h2>
+                <p>
+                    I am passionate about education and have experience teaching courses that bridge 
+                    economics, data science, and environmental studies.
+                </p>
+                <div class="teaching-item">
+                    <h3>Teaching Assistant</h3>
+                    <p>I have served as a teaching assistant for various courses in economics, 
+                    statistics, and computational methods, helping students develop analytical 
+                    skills and quantitative reasoning.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Ozma Houck. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.querySelector('.theme-icon');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+        
+        function updateThemeIcon(theme) {
+            themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+        }
+    </script>
+</body>
+</html>
